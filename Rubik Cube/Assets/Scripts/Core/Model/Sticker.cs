@@ -29,5 +29,17 @@ namespace Assets.Scripts.Core.Model
         {
             return $"{Face} {Color}";
         }
+
+        private bool Equals(Sticker other)
+        {
+            return Face == other.Face && Color == other.Color;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj is Sticker && Equals((Sticker) obj);
+        }
     }
 }
