@@ -11,9 +11,11 @@ namespace Assets.Scripts
         private void Start()
         {
             cube = new Cube();
-
             Debug.Log(cube);
-            Debug.Log(cube[0, 0, 0]);
+            cube.RotateUpClockwise();
+            Debug.Log(cube);
+            cube.RotateUpCounterClockwise();
+            Debug.Log(cube);
         }
     }
 }
