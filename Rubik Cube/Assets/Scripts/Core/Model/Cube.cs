@@ -17,7 +17,7 @@ namespace Assets.Scripts.Core.Model
     /// |  ------- ------- ------- 
     /// |---------------- > X
     /// 
-    /// Z - layer's height
+    /// Z - layer's height (0 - bottom, 1 - middle, 2 - top)
     ///
     /// </summary>
     public sealed class Cube
@@ -157,6 +157,204 @@ namespace Assets.Scripts.Core.Model
 
         #endregion UP
 
+        #region DOWN
+
+        // D
+        public void RotateDownClockwise()
+        {
+            SwapDownPieces(true);
+        }
+
+        // D'
+        public void RotateDownCounterClockwise()
+        {
+            SwapDownPieces(false);
+        }
+
+        private void SwapDownPieces(bool clockwise)
+        {
+            var x = clockwise ? 2 : 0;
+            var y = clockwise ? 0 : 2;
+
+            // Corner pieces
+            var temp = _pieces[0, 0, 0];
+            _pieces[0, 0, 0] = _pieces[y, x, 0];
+            _pieces[y, x, 0] = _pieces[2, 2, 0];
+            _pieces[2, 2, 0] = _pieces[x, y, 0];
+            _pieces[x, y, 0] = temp;
+
+            // Edge pieces
+            temp = _pieces[0, 1, 0];
+            _pieces[0, 1, 0] = _pieces[1, x, 0];
+            _pieces[1, x, 0] = _pieces[2, 1, 0];
+            _pieces[2, 1, 0] = _pieces[1, y, 0];
+            _pieces[1, y, 0] = temp;
+
+            foreach (var piece in _pieces)
+            {
+                if (piece.Stickers.FirstOrDefault(s => s.Face == Faces.DOWN) == null)
+                    continue;
+
+                foreach (var sticker in piece.Stickers)
+                {
+                    if (sticker.Face == Faces.DOWN)
+                        continue;
+
+                    switch (sticker.Face)
+                    {
+                        case Faces.FRONT:
+                            sticker.PlaceOn(clockwise ? Faces.RIGHT : Faces.LEFT);
+                            break;
+                        case Faces.BACK:
+                            sticker.PlaceOn(clockwise ? Faces.LEFT : Faces.RIGHT);
+                            break;
+                        case Faces.LEFT:
+                            sticker.PlaceOn(clockwise ? Faces.FRONT : Faces.BACK);
+                            break;
+                        case Faces.RIGHT:
+                            sticker.PlaceOn(clockwise ? Faces.BACK : Faces.FRONT);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+            }
+        }
+
+        #endregion DOWN
+
+        #region FRONT
+
+        // F
+        public void RotateFrontClockwise()
+        {
+            SwapFrontPieces(true);
+        }
+
+        // F'
+        public void RotateFrontCounterClockwise()
+        {
+            SwapFrontPieces(false);
+        }
+
+        private void SwapFrontPieces(bool clockwise)
+        {
+            var x = clockwise ? 2 : 0;
+            var y = clockwise ? 0 : 2;
+
+            // Corner pieces
+            var temp = _pieces[0, 0, 0];
+            _pieces[0, 0, 0] = _pieces[x, 0, y];
+            _pieces[x, 0, y] = _pieces[2, 0, 2];
+            _pieces[2, 0, 2] = _pieces[y, 0, x];
+            _pieces[y, 0, x] = temp;
+
+            // Edge pieces
+            temp = _pieces[0, 0, 1];
+            _pieces[0, 0, 1] = _pieces[1, 0, y];
+            _pieces[1, 0, y] = _pieces[2, 0, 1];
+            _pieces[2, 0, 1] = _pieces[1, 0, x];
+            _pieces[1, 0, x] = temp;
+
+            foreach (var piece in _pieces)
+            {
+                if (piece.Stickers.FirstOrDefault(s => s.Face == Faces.FRONT) == null)
+                    continue;
+
+                foreach (var sticker in piece.Stickers)
+                {
+                    if (sticker.Face == Faces.FRONT)
+                        continue;
+
+                    switch (sticker.Face)
+                    {
+                        case Faces.UP:
+                            sticker.PlaceOn(clockwise ? Faces.RIGHT : Faces.LEFT);
+                            break;
+                        case Faces.DOWN:
+                            sticker.PlaceOn(clockwise ? Faces.LEFT : Faces.RIGHT);
+                            break;
+                        case Faces.LEFT:
+                            sticker.PlaceOn(clockwise ? Faces.UP : Faces.DOWN);
+                            break;
+                        case Faces.RIGHT:
+                            sticker.PlaceOn(clockwise ? Faces.DOWN : Faces.UP);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+            }
+        }
+
+        #endregion FRONT
+
+        #region BACK
+
+        // B
+        public void RotateBackClockwise()
+        {
+            SwapBackPieces(true);
+        }
+
+        // B'
+        public void RotateBackCounterClockwise()
+        {
+            SwapBackPieces(false);
+        }
+
+        private void SwapBackPieces(bool clockwise)
+        {
+            var x = clockwise ? 2 : 0;
+            var y = clockwise ? 0 : 2;
+
+            // Corner pieces
+            var temp = _pieces[0, 2, 0];
+            _pieces[0, 2, 0] = _pieces[y, 2, x];
+            _pieces[y, 2, x] = _pieces[2, 2, 2];
+            _pieces[2, 2, 2] = _pieces[x, 2, y];
+            _pieces[x, 2, y] = temp;
+
+            // Edge pieces
+            temp = _pieces[0, 2, 1];
+            _pieces[0, 2, 1] = _pieces[1, 2, x];
+            _pieces[1, 2, x] = _pieces[2, 2, 1];
+            _pieces[2, 2, 1] = _pieces[1, 2, y];
+            _pieces[1, 2, y] = temp;
+
+            foreach (var piece in _pieces)
+            {
+                if (piece.Stickers.FirstOrDefault(s => s.Face == Faces.BACK) == null)
+                    continue;
+
+                foreach (var sticker in piece.Stickers)
+                {
+                    if (sticker.Face == Faces.BACK)
+                        continue;
+
+                    switch (sticker.Face)
+                    {
+                        case Faces.UP:
+                            sticker.PlaceOn(clockwise ? Faces.LEFT : Faces.RIGHT);
+                            break;
+                        case Faces.DOWN:
+                            sticker.PlaceOn(clockwise ? Faces.RIGHT : Faces.LEFT);
+                            break;
+                        case Faces.LEFT:
+                            sticker.PlaceOn(clockwise ? Faces.DOWN : Faces.UP);
+                            break;
+                        case Faces.RIGHT:
+                            sticker.PlaceOn(clockwise ? Faces.UP : Faces.DOWN);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+            }
+        }
+
+        #endregion BACK
+
         #region LEFT
 
         // L
@@ -223,69 +421,71 @@ namespace Assets.Scripts.Core.Model
 
         #endregion LEFT
 
-        #region FRONT
-
-        // F
-        public void RotateFrontClockwise()
-        {
-
-        }
-
-        // F'
-        public void RotateFrontCounterClockwise()
-        {
-
-        }
-
-        #endregion FRONT
-
         #region RIGHT
 
         // R
         public void RotateRightClockwise()
         {
-
+            SwapRightPieces(true);
         }
 
         // R'
         public void RotateRightCounterClockwise()
         {
+            SwapRightPieces(false);
+        }
 
+        private void SwapRightPieces(bool clockwise)
+        {
+            var x = clockwise ? 2 : 0;
+            var y = clockwise ? 0 : 2;
+
+            // Corner pieces
+            var temp = _pieces[2, 0, 0];
+            _pieces[2, 0, 0] = _pieces[2, x, y];
+            _pieces[2, x, y] = _pieces[2, 2, 2];
+            _pieces[2, 2, 2] = _pieces[2, y, x];
+            _pieces[2, y, x] = temp;
+
+            // Edge pieces
+            temp = _pieces[2, 0, 1];
+            _pieces[2, 0, 1] = _pieces[2, 1, y];
+            _pieces[2, 1, y] = _pieces[2, 2, 1];
+            _pieces[2, 2, 1] = _pieces[2, 1, x];
+            _pieces[2, 1, x] = temp;
+
+            foreach (var piece in _pieces)
+            {
+                if (piece.Stickers.FirstOrDefault(s => s.Face == Faces.RIGHT) == null)
+                    continue;
+
+                foreach (var sticker in piece.Stickers)
+                {
+                    if (sticker.Face == Faces.RIGHT)
+                        continue;
+
+                    switch (sticker.Face)
+                    {
+                        case Faces.FRONT:
+                            sticker.PlaceOn(clockwise ? Faces.UP : Faces.DOWN);
+                            break;
+                        case Faces.BACK:
+                            sticker.PlaceOn(clockwise ? Faces.DOWN : Faces.UP);
+                            break;
+                        case Faces.UP:
+                            sticker.PlaceOn(clockwise ? Faces.BACK : Faces.FRONT);
+                            break;
+                        case Faces.DOWN:
+                            sticker.PlaceOn(clockwise ? Faces.FRONT : Faces.BACK);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+            }
         }
 
         #endregion RIGHT
-
-        #region BACK
-
-        // B
-        public void RotateBackClockwise()
-        {
-
-        }
-
-        // B'
-        public void RotateBackCounterClockwise()
-        {
-
-        }
-
-        #endregion BACK
-
-        #region DOWN
-
-        // D
-        public void RotateDownClockwise()
-        {
-
-        }
-
-        // D'
-        public void RotateDownCounterClockwise()
-        {
-
-        }
-
-        #endregion DOWN
 
         public override string ToString()
         {

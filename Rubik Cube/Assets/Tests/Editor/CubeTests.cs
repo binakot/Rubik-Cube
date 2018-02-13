@@ -315,6 +315,444 @@ namespace Assets.Tests.Editor
         }
 
         [Test]
+        public void RotateDownClockwise()
+        {
+            var cube = new Cube();
+            cube.RotateDownClockwise();
+
+            // Up edge
+            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+
+            // Left edge
+            Assert.AreEqual(Colors.ORANGE, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+
+            // Front edge
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+
+            // Right edge
+            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+
+            // Back edge
+            Assert.AreEqual(Colors.BLUE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.BLUE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+
+            // Down edge
+            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+        }
+
+        [Test]
+        public void RotateDownCounterClockwise()
+        {
+            var cube = new Cube();
+            cube.RotateDownCounterClockwise();
+
+            // Up edge
+            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+
+            // Left edge
+            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+
+            // Front edge
+            Assert.AreEqual(Colors.BLUE, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+
+            // Right edge
+            Assert.AreEqual(Colors.ORANGE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+
+            // Back edge
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.GREEN, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.GREEN, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+
+            // Down edge
+            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+        }
+
+        [Test]
+        public void RotateFrontClockwise()
+        {
+            var cube = new Cube();
+            cube.RotateFrontClockwise();
+
+            // Up edge
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.GREEN, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.GREEN, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+
+            // Left edge
+            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+
+            // Front edge
+            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+
+            // Right edge
+            Assert.AreEqual(Colors.WHITE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+
+            // Back edge
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+
+            // Down edge
+            Assert.AreEqual(Colors.BLUE, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.BLUE, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+        }
+
+        [Test]
+        public void RotateFrontCounterClockwise()
+        {
+            var cube = new Cube();
+            cube.RotateFrontCounterClockwise();
+
+            // Up edge
+            Assert.AreEqual(Colors.BLUE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.BLUE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+
+            // Left edge
+            Assert.AreEqual(Colors.WHITE, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+
+            // Front edge
+            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+
+            // Right edge
+            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+
+            // Back edge
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+
+            // Down edge
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.GREEN, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.GREEN, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+        }
+
+        [Test]
+        public void RotateBackClockwise()
+        {
+            var cube = new Cube();
+            cube.RotateBackClockwise();
+
+            // Up edge
+            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.BLUE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.BLUE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+
+            // Left edge
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+
+            // Front edge
+            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+
+            // Right edge
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+
+            // Back edge
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+
+            // Down edge
+            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.GREEN, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.GREEN, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+        }
+
+        [Test]
+        public void RotateBackCounterClockwise()
+        {
+            var cube = new Cube();
+            cube.RotateBackCounterClockwise();
+
+            // Up edge
+            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.GREEN, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+            Assert.AreEqual(Colors.GREEN, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
+
+            // Left edge
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
+
+            // Front edge
+            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
+
+            // Right edge
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
+
+            // Back edge
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
+
+            // Down edge
+            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.BLUE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.BLUE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+            Assert.AreEqual(Colors.BLUE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
+        }
+
+        [Test]
         public void RotateLeftClockwise()
         {
             var cube = new Cube();
@@ -456,152 +894,6 @@ namespace Assets.Tests.Editor
             Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
             Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
             Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-        }
-
-        [Test]
-        public void RotateFrontClockwise()
-        {
-            var cube = new Cube();
-            cube.RotateFrontClockwise();
-
-            // Up edge
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.GREEN, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.GREEN, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-
-            // Left edge
-            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-
-            // Front edge
-            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-
-            // Right edge
-            Assert.AreEqual(Colors.WHITE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-
-            // Back edge
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-
-            // Down edge
-            Assert.AreEqual(Colors.BLUE, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.BLUE, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-        }
-
-        [Test]
-        public void RotateFrontCounterClockwise()
-        {
-            var cube = new Cube();
-            cube.RotateFrontCounterClockwise();
-
-            // Up edge
-            Assert.AreEqual(Colors.BLUE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.BLUE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-
-            // Left edge
-            Assert.AreEqual(Colors.WHITE, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-
-            // Front edge
-            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-
-            // Right edge
-            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-
-            // Back edge
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-
-            // Down edge
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.GREEN, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.GREEN, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
             Assert.AreEqual(Colors.YELLOW, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
             Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
         }
@@ -753,299 +1045,7 @@ namespace Assets.Tests.Editor
         }
 
         [Test]
-        public void RotateBackClockwise()
-        {
-            var cube = new Cube();
-            cube.RotateBackClockwise();
-
-            // Up edge
-            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.BLUE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.BLUE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-
-            // Left edge
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-
-            // Front edge
-            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-
-            // Right edge
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-
-            // Back edge
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-
-            // Down edge
-            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.GREEN, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.GREEN, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-        }
-
-        [Test]
-        public void RotateBackCounterClockwise()
-        {
-            var cube = new Cube();
-            cube.RotateBackCounterClockwise();
-
-            // Up edge
-            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.GREEN, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.GREEN, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-
-            // Left edge
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-
-            // Front edge
-            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-
-            // Right edge
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-
-            // Back edge
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-
-            // Down edge
-            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.BLUE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.BLUE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-        }
-
-        [Test]
-        public void RotateDownClockwise()
-        {
-            var cube = new Cube();
-            cube.RotateDownClockwise();
-
-            // Up edge
-            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-
-            // Left edge
-            Assert.AreEqual(Colors.ORANGE, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-
-            // Front edge
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-
-            // Right edge
-            Assert.AreEqual(Colors.RED, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-
-            // Back edge
-            Assert.AreEqual(Colors.BLUE, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.BLUE, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-
-            // Down edge
-            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-        }
-
-        [Test]
-        public void RotateDownCounterClockwise()
-        {
-            var cube = new Cube();
-            cube.RotateDownCounterClockwise();
-
-            // Up edge
-            Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-            Assert.AreEqual(Colors.WHITE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.UP).Color);
-
-            // Left edge
-            Assert.AreEqual(Colors.RED, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 1, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.LEFT).Color);
-
-            // Front edge
-            Assert.AreEqual(Colors.BLUE, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[1, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-            Assert.AreEqual(Colors.RED, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.FRONT).Color);
-
-            // Right edge
-            Assert.AreEqual(Colors.ORANGE, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 0, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 1, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-            Assert.AreEqual(Colors.BLUE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.RIGHT).Color);
-
-            // Back edge
-            Assert.AreEqual(Colors.GREEN, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.GREEN, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.GREEN, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 1].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[0, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[1, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-            Assert.AreEqual(Colors.ORANGE, cube[2, 2, 2].Stickers.First(s => s.Face == Faces.BACK).Color);
-
-            // Down edge
-            Assert.AreEqual(Colors.YELLOW, cube[0, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 0, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 1, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[0, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[1, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-            Assert.AreEqual(Colors.YELLOW, cube[2, 2, 0].Stickers.First(s => s.Face == Faces.DOWN).Color);
-        }
-
-        [Test]
-        public void RotateClockwiseAndBack()
+        public void RotateClockwiseAndCounterClockwiseToBack()
         {
             var cube = new Cube();
             var origin = cube.ToString();
@@ -1071,6 +1071,92 @@ namespace Assets.Tests.Editor
             Assert.AreEqual(origin, cube.ToString());
 
             cube.RotateDownClockwise();
+            cube.RotateDownCounterClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+        }
+
+        [Test]
+        public void RotateClockwiseFourTimesToBack()
+        {
+            var cube = new Cube();
+            var origin = cube.ToString();
+
+            cube.RotateUpClockwise();
+            cube.RotateUpClockwise();
+            cube.RotateUpClockwise();
+            cube.RotateUpClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateLeftClockwise();
+            cube.RotateLeftClockwise();
+            cube.RotateLeftClockwise();
+            cube.RotateLeftClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateFrontClockwise();
+            cube.RotateFrontClockwise();
+            cube.RotateFrontClockwise();
+            cube.RotateFrontClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateRightClockwise();
+            cube.RotateRightClockwise();
+            cube.RotateRightClockwise();
+            cube.RotateRightClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateBackClockwise();
+            cube.RotateBackClockwise();
+            cube.RotateBackClockwise();
+            cube.RotateBackClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateDownClockwise();
+            cube.RotateDownClockwise();
+            cube.RotateDownClockwise();
+            cube.RotateDownClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+        }
+
+        [Test]
+        public void RotateCounterClockwiseFourTimesToBack()
+        {
+            var cube = new Cube();
+            var origin = cube.ToString();
+
+            cube.RotateUpCounterClockwise();
+            cube.RotateUpCounterClockwise();
+            cube.RotateUpCounterClockwise();
+            cube.RotateUpCounterClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateLeftCounterClockwise();
+            cube.RotateLeftCounterClockwise();
+            cube.RotateLeftCounterClockwise();
+            cube.RotateLeftCounterClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateFrontCounterClockwise();
+            cube.RotateFrontCounterClockwise();
+            cube.RotateFrontCounterClockwise();
+            cube.RotateFrontCounterClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateRightCounterClockwise();
+            cube.RotateRightCounterClockwise();
+            cube.RotateRightCounterClockwise();
+            cube.RotateRightCounterClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateBackCounterClockwise();
+            cube.RotateBackCounterClockwise();
+            cube.RotateBackCounterClockwise();
+            cube.RotateBackCounterClockwise();
+            Assert.AreEqual(origin, cube.ToString());
+
+            cube.RotateDownCounterClockwise();
+            cube.RotateDownCounterClockwise();
+            cube.RotateDownCounterClockwise();
             cube.RotateDownCounterClockwise();
             Assert.AreEqual(origin, cube.ToString());
         }
