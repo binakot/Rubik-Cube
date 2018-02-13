@@ -3,7 +3,7 @@
 namespace Assets.Scripts.Core.Model
 {
     [Serializable]
-    public class EmptyPiece : Piece
+    public sealed class EmptyPiece : Piece
     {
         public EmptyPiece() 
             : base(Array.Empty<Sticker>())

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Assets.Scripts.Core.Model;
+using Assets.Scripts.Core.Model.Enums;
 using NUnit.Framework;
 
 namespace Assets.Tests.Editor
@@ -172,7 +173,7 @@ namespace Assets.Tests.Editor
         public void RotateUpClockwise()
         {
             var cube = new Cube();
-            cube.RotateUpClockwise();
+            cube.Rotate(Faces.UP, true);
 
             // Up edge
             Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -245,7 +246,7 @@ namespace Assets.Tests.Editor
         public void RotateUpCounterClockwise()
         {
             var cube = new Cube();
-            cube.RotateUpCounterClockwise();
+            cube.Rotate(Faces.UP, false);
 
             // Up edge
             Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -318,7 +319,7 @@ namespace Assets.Tests.Editor
         public void RotateDownClockwise()
         {
             var cube = new Cube();
-            cube.RotateDownClockwise();
+            cube.Rotate(Faces.DOWN, true);
 
             // Up edge
             Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -391,7 +392,7 @@ namespace Assets.Tests.Editor
         public void RotateDownCounterClockwise()
         {
             var cube = new Cube();
-            cube.RotateDownCounterClockwise();
+            cube.Rotate(Faces.DOWN, false);
 
             // Up edge
             Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -464,7 +465,7 @@ namespace Assets.Tests.Editor
         public void RotateFrontClockwise()
         {
             var cube = new Cube();
-            cube.RotateFrontClockwise();
+            cube.Rotate(Faces.FRONT, true);
 
             // Up edge
             Assert.AreEqual(Colors.GREEN, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -537,7 +538,7 @@ namespace Assets.Tests.Editor
         public void RotateFrontCounterClockwise()
         {
             var cube = new Cube();
-            cube.RotateFrontCounterClockwise();
+            cube.Rotate(Faces.FRONT, false);
 
             // Up edge
             Assert.AreEqual(Colors.BLUE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -610,7 +611,7 @@ namespace Assets.Tests.Editor
         public void RotateBackClockwise()
         {
             var cube = new Cube();
-            cube.RotateBackClockwise();
+            cube.Rotate(Faces.BACK, true);
 
             // Up edge
             Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -683,7 +684,7 @@ namespace Assets.Tests.Editor
         public void RotateBackCounterClockwise()
         {
             var cube = new Cube();
-            cube.RotateBackCounterClockwise();
+            cube.Rotate(Faces.BACK, false);
 
             // Up edge
             Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -756,7 +757,7 @@ namespace Assets.Tests.Editor
         public void RotateLeftClockwise()
         {
             var cube = new Cube();
-            cube.RotateLeftClockwise();
+            cube.Rotate(Faces.LEFT, true);
 
             // Up edge
             Assert.AreEqual(Colors.ORANGE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -829,7 +830,7 @@ namespace Assets.Tests.Editor
         public void RotateLeftCounterClockwise()
         {
             var cube = new Cube();
-            cube.RotateLeftCounterClockwise();
+            cube.Rotate(Faces.LEFT, false);
 
             // Up edge
             Assert.AreEqual(Colors.RED, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -902,7 +903,7 @@ namespace Assets.Tests.Editor
         public void RotateRightClockwise()
         {
             var cube = new Cube();
-            cube.RotateRightClockwise();
+            cube.Rotate(Faces.RIGHT, true);
 
             // Up edge
             Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -975,7 +976,7 @@ namespace Assets.Tests.Editor
         public void RotateRightCounterClockwise()
         {
             var cube = new Cube();
-            cube.RotateRightCounterClockwise();
+            cube.Rotate(Faces.RIGHT, false);
 
             // Up edge
             Assert.AreEqual(Colors.WHITE, cube[0, 0, 2].Stickers.First(s => s.Face == Faces.UP).Color);
@@ -1050,28 +1051,28 @@ namespace Assets.Tests.Editor
             var cube = new Cube();
             var origin = cube.ToString();
 
-            cube.RotateUpClockwise();
-            cube.RotateUpCounterClockwise();
+            cube.Rotate(Faces.UP, true);
+            cube.Rotate(Faces.UP, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateLeftClockwise();
-            cube.RotateLeftCounterClockwise();
+            cube.Rotate(Faces.LEFT, true);
+            cube.Rotate(Faces.LEFT, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateFrontClockwise();
-            cube.RotateFrontCounterClockwise();
+            cube.Rotate(Faces.FRONT, true);
+            cube.Rotate(Faces.FRONT, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateRightClockwise();
-            cube.RotateRightCounterClockwise();
+            cube.Rotate(Faces.RIGHT, true);
+            cube.Rotate(Faces.RIGHT, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateBackClockwise();
-            cube.RotateBackCounterClockwise();
+            cube.Rotate(Faces.BACK, true);
+            cube.Rotate(Faces.BACK, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateDownClockwise();
-            cube.RotateDownCounterClockwise();
+            cube.Rotate(Faces.DOWN, true);
+            cube.Rotate(Faces.DOWN, false);
             Assert.AreEqual(origin, cube.ToString());
         }
 
@@ -1081,40 +1082,40 @@ namespace Assets.Tests.Editor
             var cube = new Cube();
             var origin = cube.ToString();
 
-            cube.RotateUpClockwise();
-            cube.RotateUpClockwise();
-            cube.RotateUpClockwise();
-            cube.RotateUpClockwise();
+            cube.Rotate(Faces.UP, true);
+            cube.Rotate(Faces.UP, true);
+            cube.Rotate(Faces.UP, true);
+            cube.Rotate(Faces.UP, true);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateLeftClockwise();
-            cube.RotateLeftClockwise();
-            cube.RotateLeftClockwise();
-            cube.RotateLeftClockwise();
+            cube.Rotate(Faces.LEFT, true);
+            cube.Rotate(Faces.LEFT, true);
+            cube.Rotate(Faces.LEFT, true);
+            cube.Rotate(Faces.LEFT, true);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateFrontClockwise();
-            cube.RotateFrontClockwise();
-            cube.RotateFrontClockwise();
-            cube.RotateFrontClockwise();
+            cube.Rotate(Faces.FRONT, true);
+            cube.Rotate(Faces.FRONT, true);
+            cube.Rotate(Faces.FRONT, true);
+            cube.Rotate(Faces.FRONT, true);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateRightClockwise();
-            cube.RotateRightClockwise();
-            cube.RotateRightClockwise();
-            cube.RotateRightClockwise();
+            cube.Rotate(Faces.RIGHT, true);
+            cube.Rotate(Faces.RIGHT, true);
+            cube.Rotate(Faces.RIGHT, true);
+            cube.Rotate(Faces.RIGHT, true);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateBackClockwise();
-            cube.RotateBackClockwise();
-            cube.RotateBackClockwise();
-            cube.RotateBackClockwise();
+            cube.Rotate(Faces.BACK, true);
+            cube.Rotate(Faces.BACK, true);
+            cube.Rotate(Faces.BACK, true);
+            cube.Rotate(Faces.BACK, true);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateDownClockwise();
-            cube.RotateDownClockwise();
-            cube.RotateDownClockwise();
-            cube.RotateDownClockwise();
+            cube.Rotate(Faces.DOWN, true);
+            cube.Rotate(Faces.DOWN, true);
+            cube.Rotate(Faces.DOWN, true);
+            cube.Rotate(Faces.DOWN, true);
             Assert.AreEqual(origin, cube.ToString());
         }
 
@@ -1124,40 +1125,40 @@ namespace Assets.Tests.Editor
             var cube = new Cube();
             var origin = cube.ToString();
 
-            cube.RotateUpCounterClockwise();
-            cube.RotateUpCounterClockwise();
-            cube.RotateUpCounterClockwise();
-            cube.RotateUpCounterClockwise();
+            cube.Rotate(Faces.UP, false);
+            cube.Rotate(Faces.UP, false);
+            cube.Rotate(Faces.UP, false);
+            cube.Rotate(Faces.UP, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateLeftCounterClockwise();
-            cube.RotateLeftCounterClockwise();
-            cube.RotateLeftCounterClockwise();
-            cube.RotateLeftCounterClockwise();
+            cube.Rotate(Faces.LEFT, false);
+            cube.Rotate(Faces.LEFT, false);
+            cube.Rotate(Faces.LEFT, false);
+            cube.Rotate(Faces.LEFT, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateFrontCounterClockwise();
-            cube.RotateFrontCounterClockwise();
-            cube.RotateFrontCounterClockwise();
-            cube.RotateFrontCounterClockwise();
+            cube.Rotate(Faces.FRONT, false);
+            cube.Rotate(Faces.FRONT, false);
+            cube.Rotate(Faces.FRONT, false);
+            cube.Rotate(Faces.FRONT, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateRightCounterClockwise();
-            cube.RotateRightCounterClockwise();
-            cube.RotateRightCounterClockwise();
-            cube.RotateRightCounterClockwise();
+            cube.Rotate(Faces.RIGHT, false);
+            cube.Rotate(Faces.RIGHT, false);
+            cube.Rotate(Faces.RIGHT, false);
+            cube.Rotate(Faces.RIGHT, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateBackCounterClockwise();
-            cube.RotateBackCounterClockwise();
-            cube.RotateBackCounterClockwise();
-            cube.RotateBackCounterClockwise();
+            cube.Rotate(Faces.BACK, false);
+            cube.Rotate(Faces.BACK, false);
+            cube.Rotate(Faces.BACK, false);
+            cube.Rotate(Faces.BACK, false);
             Assert.AreEqual(origin, cube.ToString());
 
-            cube.RotateDownCounterClockwise();
-            cube.RotateDownCounterClockwise();
-            cube.RotateDownCounterClockwise();
-            cube.RotateDownCounterClockwise();
+            cube.Rotate(Faces.DOWN, false);
+            cube.Rotate(Faces.DOWN, false);
+            cube.Rotate(Faces.DOWN, false);
+            cube.Rotate(Faces.DOWN, false);
             Assert.AreEqual(origin, cube.ToString());
         }
     }

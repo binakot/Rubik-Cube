@@ -1,5 +1,8 @@
-﻿namespace Assets.Scripts.Core.Model
+﻿using System;
+
+namespace Assets.Scripts.Core.Model.Enums
 {
+    [Serializable]
     public enum Faces
     {
         FRONT,

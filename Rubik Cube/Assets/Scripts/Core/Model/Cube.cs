@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+using Assets.Scripts.Core.Model.Enums;
+using Assets.Scripts.Core.Model.Events;
 
 namespace Assets.Scripts.Core.Model
 {
@@ -20,15 +21,56 @@ namespace Assets.Scripts.Core.Model
     /// Z - layer's height (0 - bottom, 1 - middle, 2 - top)
     ///
     /// </summary>
+    [Serializable]
     public sealed class Cube
     {
-        private readonly Piece[,,] _pieces = new Piece[3, 3, 3];
+        public event EventHandler<CubeChangedEventArgs> OnCubeChanged = (sender, e) => { };
+        public event EventHandler<CubeChangedEventArgs> OnCubeSolved = (sender, e) => { };
 
         public Piece this[int x, int y, int z] => _pieces[x, y, z];
+
+        private readonly Piece[,,] _pieces = new Piece[3, 3, 3];
 
         public Cube()
         {
             InitSolvedCube();
+        }
+
+        public void Rotate(Faces face, bool clockwise)
+        {
+            switch (face)
+            {
+                case Faces.FRONT:
+                    SwapFrontPieces(clockwise);
+                    break;
+
+                case Faces.BACK:
+                    SwapBackPieces(clockwise);
+                    break;
+
+                case Faces.UP:
+                    SwapUpPieces(clockwise);
+                    break;
+
+                case Faces.DOWN:
+                    SwapDownPieces(clockwise);
+                    break;
+
+                case Faces.LEFT:
+                    SwapLeftPieces(clockwise);
+                    break;
+
+                case Faces.RIGHT:
+                    SwapRightPieces(clockwise);
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(face), face, null);
+            }
+
+            OnCubeChanged(this, new CubeChangedEventArgs());
+
+            // TODO Check the cube solution
         }
 
         private void InitSolvedCube()
@@ -91,20 +133,6 @@ namespace Assets.Scripts.Core.Model
             #endregion TOP LAYER
         }
 
-        #region UP
-
-        // U
-        public void RotateUpClockwise()
-        {
-            SwapUpPieces(true);
-        }
-
-        // U'
-        public void RotateUpCounterClockwise()
-        {
-            SwapUpPieces(false);
-        }
-
         private void SwapUpPieces(bool clockwise)
         {
             var x = clockwise ? 2 : 0;
@@ -153,22 +181,6 @@ namespace Assets.Scripts.Core.Model
                     }
                 }
             }
-        }
-
-        #endregion UP
-
-        #region DOWN
-
-        // D
-        public void RotateDownClockwise()
-        {
-            SwapDownPieces(true);
-        }
-
-        // D'
-        public void RotateDownCounterClockwise()
-        {
-            SwapDownPieces(false);
         }
 
         private void SwapDownPieces(bool clockwise)
@@ -221,22 +233,6 @@ namespace Assets.Scripts.Core.Model
             }
         }
 
-        #endregion DOWN
-
-        #region FRONT
-
-        // F
-        public void RotateFrontClockwise()
-        {
-            SwapFrontPieces(true);
-        }
-
-        // F'
-        public void RotateFrontCounterClockwise()
-        {
-            SwapFrontPieces(false);
-        }
-
         private void SwapFrontPieces(bool clockwise)
         {
             var x = clockwise ? 2 : 0;
@@ -285,22 +281,6 @@ namespace Assets.Scripts.Core.Model
                     }
                 }
             }
-        }
-
-        #endregion FRONT
-
-        #region BACK
-
-        // B
-        public void RotateBackClockwise()
-        {
-            SwapBackPieces(true);
-        }
-
-        // B'
-        public void RotateBackCounterClockwise()
-        {
-            SwapBackPieces(false);
         }
 
         private void SwapBackPieces(bool clockwise)
@@ -353,22 +333,6 @@ namespace Assets.Scripts.Core.Model
             }
         }
 
-        #endregion BACK
-
-        #region LEFT
-
-        // L
-        public void RotateLeftClockwise()
-        {
-            SwapLeftPieces(true);
-        }
-
-        // L'
-        public void RotateLeftCounterClockwise()
-        {
-            SwapLeftPieces(false);
-        }
-
         private void SwapLeftPieces(bool clockwise)
         {
             var x = clockwise ? 2 : 0;
@@ -417,22 +381,6 @@ namespace Assets.Scripts.Core.Model
                     }
                 }
             }
-        }
-
-        #endregion LEFT
-
-        #region RIGHT
-
-        // R
-        public void RotateRightClockwise()
-        {
-            SwapRightPieces(true);
-        }
-
-        // R'
-        public void RotateRightCounterClockwise()
-        {
-            SwapRightPieces(false);
         }
 
         private void SwapRightPieces(bool clockwise)
@@ -484,9 +432,7 @@ namespace Assets.Scripts.Core.Model
                 }
             }
         }
-
-        #endregion RIGHT
-
+        
         public override string ToString()
         {
             var str = string.Empty;

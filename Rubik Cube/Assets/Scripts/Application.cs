@@ -1,10 +1,13 @@
-﻿using Assets.Scripts.Core.Model;
+﻿using System;
+using Assets.Scripts.Core.Model;
+using Assets.Scripts.Core.Model.Enums;
 using Assets.Scripts.Utility;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class Application : Singleton<Application>
+    [Serializable]
+    public sealed class Application : Singleton<Application>
     {
         private Cube cube;
 
@@ -12,9 +15,9 @@ namespace Assets.Scripts
         {
             cube = new Cube();
             Debug.Log(cube);
-            cube.RotateUpClockwise();
+            cube.Rotate(Faces.UP, true);
             Debug.Log(cube);
-            cube.RotateUpCounterClockwise();
+            cube.Rotate(Faces.UP, false);
             Debug.Log(cube);
         }
     }
