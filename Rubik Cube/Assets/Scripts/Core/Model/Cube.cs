@@ -25,7 +25,7 @@ namespace Assets.Scripts.Core.Model
     public sealed class Cube
     {
         public event EventHandler<CubeChangedEventArgs> OnCubeChanged = (sender, e) => { };
-        public event EventHandler<CubeChangedEventArgs> OnCubeSolved = (sender, e) => { };
+        public event EventHandler<CubeSolvedEventArgs> OnCubeSolved = (sender, e) => { };
 
         public Piece this[int x, int y, int z] => _pieces[x, y, z];
 
@@ -68,9 +68,11 @@ namespace Assets.Scripts.Core.Model
                     throw new ArgumentOutOfRangeException(nameof(face), face, null);
             }
 
-            OnCubeChanged(this, new CubeChangedEventArgs());
+            var deepCopyPieces = new Piece[3, 3, 3];
+            Array.Copy(_pieces, deepCopyPieces, _pieces.Length);
+            OnCubeChanged(this, new CubeChangedEventArgs(deepCopyPieces));
 
-            // TODO Check the cube solution
+            // TODO Check the cube solution and invoke the event
         }
 
         private void InitSolvedCube()

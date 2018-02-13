@@ -1,24 +1,22 @@
 ﻿using System;
+using Assets.Scripts.Core.Controllers;
 using Assets.Scripts.Core.Model;
-using Assets.Scripts.Core.Model.Enums;
+using Assets.Scripts.UI;
 using Assets.Scripts.Utility;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
     [Serializable]
+    [DisallowMultipleComponent]
+    [RequireComponent(typeof(CubeView))]
     public sealed class Application : Singleton<Application>
     {
-        private Cube cube;
+        private CubeController controller;
 
         private void Start()
         {
-            cube = new Cube();
-            Debug.Log(cube);
-            cube.Rotate(Faces.UP, true);
-            Debug.Log(cube);
-            cube.Rotate(Faces.UP, false);
-            Debug.Log(cube);
+            controller = new CubeController(new Cube(), this.GetComponent<CubeView>());
         }
     }
 }
