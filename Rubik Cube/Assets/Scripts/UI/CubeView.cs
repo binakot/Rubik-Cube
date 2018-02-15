@@ -1,7 +1,6 @@
 ﻿using System;
 using Assets.Scripts.Core.Model;
 using Assets.Scripts.Core.Model.Enums;
-using Assets.Scripts.Storages;
 using Assets.Scripts.UI.Events;
 using UnityEngine;
 using Random = UnityEngine.Random;
