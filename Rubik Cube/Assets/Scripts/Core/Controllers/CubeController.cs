@@ -1,8 +1,6 @@
 ﻿using System;
 using Assets.Scripts.Core.Model;
-using Assets.Scripts.Core.Model.Events;
 using Assets.Scripts.UI;
-using Assets.Scripts.UI.Events;
 
 namespace Assets.Scripts.Core.Controllers
 {
@@ -16,25 +14,10 @@ namespace Assets.Scripts.Core.Controllers
         {
             this.model = model;
             this.view = view;
-
-            this.view.OnCubeSideDragged += HandleCubeSideDragged;
-            this.model.OnCubeChanged += HandleCubeChanged;
-            this.model.OnCubeSolved += HandleCubeSolved;
-        }
-
-        private void HandleCubeSideDragged(object sender, CubeSideDraggedEventArgs cubeSideDraggedEventArgs)
-        {
-            model.Rotate(cubeSideDraggedEventArgs.Face, cubeSideDraggedEventArgs.Clockwise);
-        }
-
-        private void HandleCubeChanged(object sender, CubeChangedEventArgs cubeChangedEventArgs)
-        {
-            view.Render(cubeChangedEventArgs.Pieces);
-        }
-
-        private void HandleCubeSolved(object sender, CubeSolvedEventArgs cubeChangedEventArgs)
-        {
-            view.ShowCubeSolvedText();
+            
+            this.model.OnCubeChanged += (sender, args) => view.Render(args.Pieces);
+            this.model.OnCubeSolved += (sender, args) => view.Solved();
+            this.view.OnCubeSideDragged += (sender, args) => model.Rotate(args.Face, args.Clockwise);
         }
     }
 }

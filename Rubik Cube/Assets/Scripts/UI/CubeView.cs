@@ -8,23 +8,23 @@ namespace Assets.Scripts.UI
 {
     [Serializable]
     [DisallowMultipleComponent]
-    public sealed class CubeView : MonoBehaviour
+    public sealed class CubeView : MonoBehaviour, IView
     {
         public event EventHandler<CubeSideDraggedEventArgs> OnCubeSideDragged = (sender, e) => { };
 
         public void Render(Piece[,,] pieces)
         {
-            // TODO Render the magic cube.
+            // TODO Render
         }
 
-        public void ShowCubeSolvedText()
+        public void Rotate(Faces face, bool clockwise)
         {
-            // TODO Show some text when cube will solved.
+            OnCubeSideDragged(this, new CubeSideDraggedEventArgs(face, clockwise));
         }
 
-        public void Rotate()
+        public void Solved()
         {
-            OnCubeSideDragged(this, new CubeSideDraggedEventArgs(Faces.UP, true)); // TODO Rotate cube's sides by mouse dragging or hotkeys.
+            Debug.LogWarning("Cube is solved!");
         }
     }
 }
