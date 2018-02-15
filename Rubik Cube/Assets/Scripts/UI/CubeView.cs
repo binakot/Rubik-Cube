@@ -1,8 +1,10 @@
 ﻿using System;
 using Assets.Scripts.Core.Model;
 using Assets.Scripts.Core.Model.Enums;
+using Assets.Scripts.Storages;
 using Assets.Scripts.UI.Events;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.UI
 {
@@ -14,11 +16,21 @@ namespace Assets.Scripts.UI
 
         public void Render(Piece[,,] pieces)
         {
-            // TODO Render
+            Debug.Log("Render");
+
+            var go = (GameObject) Instantiate(Application.Instance.Resources.Piece);
+            go.transform.parent = this.transform;
+            var renderers = go.GetComponentsInChildren<MeshRenderer>();
+            foreach (var render in renderers)
+            {
+                render.material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f, 1f, 1f);
+            }
         }
 
         public void Rotate(Faces face, bool clockwise)
         {
+            Debug.Log("Rotate");
+
             OnCubeSideDragged(this, new CubeSideDraggedEventArgs(face, clockwise));
         }
 

@@ -34,6 +34,8 @@ namespace Assets.Scripts.Core.Model
         public Cube()
         {
             InitSolvedCube();
+
+            InvokeChangeEvent();
         }
 
         public void Rotate(Faces face, bool clockwise)
@@ -68,11 +70,16 @@ namespace Assets.Scripts.Core.Model
                     throw new ArgumentOutOfRangeException(nameof(face), face, null);
             }
 
+            InvokeChangeEvent();
+
+            // TODO Check the cube solution and invoke the event
+        }
+
+        public void InvokeChangeEvent()
+        {
             var deepCopyPieces = new Piece[3, 3, 3];
             Array.Copy(_pieces, deepCopyPieces, _pieces.Length);
             OnCubeChanged(this, new CubeChangedEventArgs(deepCopyPieces));
-
-            // TODO Check the cube solution and invoke the event
         }
 
         private void InitSolvedCube()

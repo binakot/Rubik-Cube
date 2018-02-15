@@ -8,9 +8,9 @@ namespace Assets.Scripts.Core.Controllers
     public sealed class CubeController
     {
         private readonly Cube model;
-        private readonly CubeView view;
+        private readonly IView view;
 
-        public CubeController(Cube model, CubeView view)
+        public CubeController(Cube model, IView view)
         {
             this.model = model;
             this.view = view;
@@ -18,6 +18,8 @@ namespace Assets.Scripts.Core.Controllers
             this.model.OnCubeChanged += (sender, args) => view.Render(args.Pieces);
             this.model.OnCubeSolved += (sender, args) => view.Solved();
             this.view.OnCubeSideDragged += (sender, args) => model.Rotate(args.Face, args.Clockwise);
+
+            model.InvokeChangeEvent(); // Force the first update
         }
     }
 }
