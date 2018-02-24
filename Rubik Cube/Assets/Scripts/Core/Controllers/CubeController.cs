@@ -1,6 +1,7 @@
 ﻿using System;
 using Assets.Scripts.Core.Model;
 using Assets.Scripts.UI;
+using UnityEngine;
 
 namespace Assets.Scripts.Core.Controllers
 {
@@ -19,7 +20,14 @@ namespace Assets.Scripts.Core.Controllers
             this.model.OnCubeSolved += (sender, args) => view.Solved();
             this.view.OnCubeSideDragged += (sender, args) => model.Rotate(args.Face, args.Clockwise);
 
-            model.InvokeChangeEvent(); // Force the first update
+#if UNITY_EDITOR
+            this.model.OnCubeChanged += (sender, args) => Debug.Log(model.ToString());
+#endif
+        }
+
+        public void ForceUpdate()
+        {
+            model.InvokeChangeEvent();
         }
     }
 }
