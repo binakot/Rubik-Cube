@@ -15,3 +15,46 @@ The number of all possible different states of the Rubik cube 3x3x3 is equal to 
 * [How to Solve the Rubik's Cube](https://en.wikibooks.org/wiki/How_to_Solve_the_Rubik%27s_Cube)
 
 * [God's algorithm](https://en.wikipedia.org/wiki/God%27s_algorithm)
+
+## About
+
+* Plain Unity project (no assets, no plugins, no frameworks)
+
+* MVC design
+
+* Full unit tests coverage for the magic cube's model
+
+## Controls
+
+![](docs/notation.png)
+
+| Rotate | Hotkeys |
+| --- | --- |
+| F | F |
+| F' | LShift + F |
+| R | R |
+| R' | LShift + R |
+| U | U |
+| U' | LShift + U |
+| B | B |
+| B' | LShift + B |
+| L | L |
+| L' | LShift + L |
+| D | D |
+| D' | LShift + D |
+
+## Examples
+
+![](docs/solved-cube.png)
+
+![](docs/unsolved-cube.png)
+
+## TODOs
+
+* Rotate animation
+
+* Rotate by mouse dragging
+
+* Random mixer
+
+* AI solver
