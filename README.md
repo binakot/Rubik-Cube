@@ -54,3 +54,7 @@ The number of all possible different states of the Rubik cube 3x3x3 is equal to 
 * Rotate animation
 
 * Rotate by mouse dragging
+
+* Random mixer
+
+* AI solver
