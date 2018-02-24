@@ -29,6 +29,8 @@ namespace Assets.Scripts
 
         private void Update()
         {
+            // TODO Rotate with mouse dragging.
+
             if (Input.GetKeyDown(KeyCode.F1))
                 controller.ForceUpdate();
 
